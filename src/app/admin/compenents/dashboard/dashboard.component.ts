@@ -5,10 +5,10 @@ import { AlertifyService, MessageType, Position } from 'src/app/services/admin/a
 
 @Component({
   selector: 'app-dasboard',
-  templateUrl: './dasboard.component.html',
-  styleUrls: ['./dasboard.component.scss']
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class DasboardComponent extends BaseComponent implements OnInit {
+export class DashboardComponent extends BaseComponent implements OnInit {
 
   constructor(private alertify: AlertifyService,spinner: NgxSpinnerService) {
     super(spinner);
