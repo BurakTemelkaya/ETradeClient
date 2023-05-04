@@ -23,6 +23,26 @@ export class CreateComponent extends BaseComponent {
     create_product.price = parseFloat(price.value);
     create_product.stock = parseInt(stock.value);
 
+    if (!name.value) {
+      this.alertify.message("Lütfen ürün adını giriniz.",
+        {
+          dismissOthers: true,
+          messageType: MessageType.Error,
+          position: Position.TopRight
+        })
+      return;
+    }
+
+    if (parseInt(stock.value) <= 0) {
+      this.alertify.message("Lütfen stok bilgisini doğru giriniz.",
+        {
+          dismissOthers: true,
+          messageType: MessageType.Error,
+          position: Position.TopRight
+        })
+      return;
+    }
+
     this.productService.create(create_product, () => {
       this.hideSpinner(SpinnerType.ballScaleMultiple);
       this.alertify.message("Ürün başarıyla eklenmiştir", {
@@ -30,6 +50,13 @@ export class CreateComponent extends BaseComponent {
         messageType: MessageType.Success,
         position: Position.TopRight
       });
-    });    
+    }, errorMessage => {
+      this.alertify.message(errorMessage,
+        {
+          dismissOthers: true,
+          messageType: MessageType.Error,
+          position: Position.TopRight
+        })
+    });
   }
 }
