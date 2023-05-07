@@ -5,14 +5,16 @@ export class BaseComponent {
   constructor(private spinner: NgxSpinnerService) { }
   showSpinner(spinerNameType: SpinnerType) {
     this.spinner.show(spinerNameType);
-
-    /*setTimeout(()=>this.hideSpinner(spinerNameType),1000);*/
+    setTimeout(() => this.hideSpinner(spinerNameType), 1000);
   }
 
-  hideSpinner(spinerNameType: SpinnerType){
-    this.spinner.hide(spinerNameType);
+  hideSpinner(spinnerNameType: SpinnerType) {
+    this.spinner.hide(spinnerNameType);
   }
+
 }
+
+
 
 export enum SpinnerType {
   ballAtom = "s1",
