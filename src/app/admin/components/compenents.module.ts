@@ -4,7 +4,7 @@ import { ProductsModule } from './products/products.module';
 import { OrderModule } from './order/order.module';
 import { CustomerModule } from './customer/customer.module';
 import { DashboardModule } from './dashboard/dashboard.module';
-import { CreateComponent } from './product/create/create.component';
+import { CreateComponent } from './products/create/create.component';
 
 
 

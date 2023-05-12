@@ -14,8 +14,6 @@ export class BaseComponent {
 
 }
 
-
-
 export enum SpinnerType {
   ballAtom = "s1",
   ballScaleMultiple = "s2",
