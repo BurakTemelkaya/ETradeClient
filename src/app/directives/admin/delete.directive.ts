@@ -3,7 +3,7 @@ import { Directive, ElementRef, EventEmitter, HostListener, Input, Output, Rende
 import { MatDialog } from '@angular/material/dialog';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SpinnerType } from '../../base/base.component';
-import { DeleteDiaglogComponent, DeleteState } from '../../dialogs/delete-diaglog/delete-diaglog.component';
+import { DeleteDialogComponent, DeleteState } from '../../dialogs/delete-diaglog/delete-diaglog.component';
 import { AlertifyService, MessageType, Position } from '../../services/admin/alertify.service';
 import { HttpClientService } from '../../services/common/http-client.service';
 
@@ -58,7 +58,7 @@ export class DeleteDirective {
         });
       }, (errorResponse: HttpErrorResponse) => {
         this.spinner.hide(SpinnerType.ballAtom);
-        this.alertifyService.message("Ürün silinirken beklenmeyen bir hata ile oluştu.", {
+        this.alertifyService.message("Ürün silinirken beklenmeyen bir hata oluştu.", {
           dismissOthers: true,
           messageType: MessageType.Error,
           position: Position.TopRight
@@ -68,7 +68,7 @@ export class DeleteDirective {
   }
 
   openDialog(afterClosed: any): void {
-    const dialogRef = this.dialog.open(DeleteDiaglogComponent, {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
       width: '250px',
       data: DeleteState.Yes,
     });
